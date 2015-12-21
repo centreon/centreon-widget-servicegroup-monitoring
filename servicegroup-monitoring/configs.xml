@@ -15,7 +15,7 @@
             <preference label="Enable Detailed Mode" name="enable_detailed_mode" defaultValue="0" type="boolean"/>
             <preference label="Results" name="entries" defaultValue="10" type="range" min="10" max="100" step="10"/>			
             <preference label="Order By" name="order_by" defaultValue="" type="sort">
-                <option value="name" label="Hostgroup Name"/>	
+                <option value="name" label="Servicegroup Name"/>	
             </preference>			
             <preference label="Refresh Interval (seconds)" name="refresh_interval" defaultValue="30" type="text" header="Misc"/>
         </preferences>        
