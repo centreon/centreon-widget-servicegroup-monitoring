@@ -33,10 +33,6 @@
  *
  */
 
-ini_set("log_errors",1);
-ini_set("error_log", "/tmp/php-error.log");
-
-
 require_once "../../require.php";
 require_once $centreon_path . 'www/class/centreon.class.php';
 require_once $centreon_path . 'www/class/centreonSession.class.php';
