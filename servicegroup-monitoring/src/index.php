@@ -33,10 +33,6 @@
  *
  */
 
-ini_set("log_errors",1);
-ini_set("error_log", "/tmp/php-error.log");
-
-
 require_once "../../require.php";
 require_once $centreon_path . 'www/class/centreon.class.php';
 require_once $centreon_path . 'www/class/centreonSession.class.php';
@@ -158,6 +154,7 @@ $template->assign('hostStateLabels', $hostStateLabels);
 $template->assign('hostStateColors', $hostStateColors);
 $template->assign('serviceStateLabels', $serviceStateLabels);
 $template->assign('serviceStateColors', $serviceStateColors);
+$template->assign('centreon_web_path', trim($centreon->optGen['oreon_web_path'], "/"));
 
 $template->display('table.ihtml');
 ?>
