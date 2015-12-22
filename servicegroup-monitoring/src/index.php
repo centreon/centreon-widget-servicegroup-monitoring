@@ -154,6 +154,7 @@ $template->assign('hostStateLabels', $hostStateLabels);
 $template->assign('hostStateColors', $hostStateColors);
 $template->assign('serviceStateLabels', $serviceStateLabels);
 $template->assign('serviceStateColors', $serviceStateColors);
+$template->assign('centreon_web_path', trim($centreon->optGen['oreon_web_path'], "/"));
 
 $template->display('table.ihtml');
 ?>
