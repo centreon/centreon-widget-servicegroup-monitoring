@@ -2,8 +2,8 @@ jQuery(function () {
     loadPage();
 });
 
-/**                                                                                                                                                                                                          
- * Load page                                                                                                                                                                                                 
+/**
+ * Load page
  */
 function loadPage()
 {
@@ -34,5 +34,5 @@ function ResizeFrame(ifrm, height)
     if (height < 150) {
         height = 150;
     }
-    jQuery("[name=" + ifrm + "]").height(height);
+    jQuery(window.parent.document).find('[name="' + ifrm + '"]').height(height);
 }
