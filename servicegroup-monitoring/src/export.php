@@ -138,8 +138,6 @@ if (isset($preferences['order_by']) && $preferences['order_by'] != "") {
 }
 $query .= "ORDER BY $orderby";
 
-
-
 $res = $dbb->query($query);
 
 if (PEAR::isError($res)) {
