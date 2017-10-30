@@ -83,25 +83,33 @@ $serviceStateColors = array(0 => "#13EB3A",
     3 => "#DCDADA",
     4 => "#2AD1D4");
 
+
 while ($row = $res->fetchRow()) {
-    if ($row['key'] == "color_up") {
-        $hostStateColors[0] = $row['value'];
-    } elseif ($row['key'] == "color_down") {
-        $hostStateColors[1] = $row['value'];
-    } elseif ($row['key'] == "color_unreachable") {
-        $hostStateColors[2] = $row['value'];
-    } elseif ($row['key'] == "color_pending") {
-        $hostStateColors[4] = $row['value'];
-    } elseif ($row['key'] == "color_ok") {
-        $serviceStateColors[0] = $row['value'];
-    } elseif ($row['key'] == "color_warning") {
-        $serviceStateColors[1] = $row['value'];
-    } elseif ($row['key'] == "color_critical") {
-        $serviceStateColors[2] = $row['value'];
-    } elseif ($row['key'] == "color_unknown") {
-        $serviceStateColors[3] = $row['value'];
-    } elseif ($row['key'] == "color_pending") {
-        $serviceStateColors[4] = $row['value'];
+    switch ($row['key']) {
+        case $row['key'] == "color_up":
+            $hostStateColors[0] = $row['value'];
+            break;
+        case $row['key'] == "color_down":
+            $hostStateColors[1] = $row['value'];
+            break;
+        case $row['key'] == "color_unreachable":
+            $hostStateColors[2] = $row['value'];
+            break;
+        case $row['key'] == "color_ok":
+            $serviceStateColors[0] = $row['value'];
+            break;
+        case $row['key'] == "color_warning":
+            $serviceStateColors[1] = $row['value'];
+            break;
+        case $row['key'] == "color_critical":
+            $serviceStateColors[2] = $row['value'];
+            break;
+        case $row['key'] == "color_unknown":
+            $serviceStateColors[3] = $row['value'];
+            break;
+        case $row['key'] == "color_pending":
+            $serviceStateColors[4] = $row['value'];
+            break;
     }
 }
 
