@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2005-2015 CENTREON
+ * Copyright 2005-2017 CENTREON
  * Centreon is developped by : Julien Mathis and Romain Le Merlus under
  * GPL Licence 2.0.
  *
@@ -62,7 +62,7 @@ $template = initSmartyTplForPopup($path, $template, "./", $centreon_path);
 
 $centreon = $_SESSION['centreon'];
 $widgetId = $_REQUEST['widgetId'];
-//$page = $_REQUEST['page'];
+$page = $_REQUEST['page'];
 
 $dbb = new CentreonDB("centstorage");
 $widgetObj = new CentreonWidget($centreon, $db);

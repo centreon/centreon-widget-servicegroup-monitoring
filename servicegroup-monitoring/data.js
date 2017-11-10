@@ -3,21 +3,17 @@ jQuery(function () {
 });
 
 /**
- * Load page
+ * Load Page
  */
 function loadPage()
 {
     jQuery.ajax("./src/index.php?widgetId=" + widgetId + "&page=" + pageNumber, {
         success: function (htmlData) {
-            jQuery("#sgMonitoringTable").html("");
-            jQuery("#sgMonitoringTable").html(htmlData);
-            var h = document.getElementById("sgMonitoringTable").scrollHeight + 10;
-            ResizeFrame(window.name, h);
-            jQuery("#sgMonitoringTable").find("img, style, script, link").load(function () {
-                var h = document.getElementById("sgMonitoringTable").scrollHeight + 10;
-                ResizeFrame(window.name, h);
+            jQuery("#sgMonitoringTable").empty().append(htmlData);
+            var hostMonitoringTable = jQuery("#sgMonitoringTable").find("img, style, script, link").load(function () {
+                var h = document.getElementById("sgMonitoringTable").scrollHeight + 50;
+                parent.iResize(window.name, h);
             });
-
         }
     });
     if (autoRefresh) {
@@ -28,11 +24,30 @@ function loadPage()
     }
 }
 
-
-function ResizeFrame(ifrm, height)
+/**
+ * Load toolbar
+ */
+function loadToolBar()
 {
-    if (height < 150) {
-        height = 150;
-    }
-    jQuery(window.parent.document).find('[name="' + ifrm + '"]').height(height);
+    jQuery("#toolBar").load(
+        "./src/toolbar.php",
+        {
+            widgetId: widgetId
+        }
+    );
 }
+
+jQuery(function () {
+    loadToolBar();
+    loadPage();
+    $('.checkall').live('click', function () {
+        var chck = this.checked;
+        $(this).parents().find(':checkbox').each(function () {
+            $(this).attr('checked', chck);
+            clickedCb[$(this).attr('id')] = chck;
+        });
+    });
+    $(".selection").live('click', function () {
+        clickedCb[$(this).attr('id')] = this.checked;
+    });
+});
