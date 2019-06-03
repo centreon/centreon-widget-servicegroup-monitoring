@@ -1,7 +1,7 @@
 <?php
 /**
  * Copyright 2005-2011 MERETHIS
- * Centreon is developped by : Julien Mathis and Romain Le Merlus under
+ * Centreon is developed by : Julien Mathis and Romain Le Merlus under
  * GPL Licence 2.0.
  *
  * This program is free software; you can redistribute it and/or modify it under
@@ -74,7 +74,7 @@ class ServicegroupMonitoring
         $res = $this->dbb->query($query);
         $tab = array();
         $detailTab = array();
-        while ($row = $res->fetchRow()) {
+        while ($row = $res->fetch()) {
             if (!isset($tab[$row['state']])) {
                 $tab[$row['state']] = 0;
             }
@@ -125,7 +125,7 @@ class ServicegroupMonitoring
         $res = $this->dbb->query($query);
         $tab = array();
         $detailTab = array();
-        while ($row = $res->fetchRow()) {
+        while ($row = $res->fetch()) {
             if (!isset($tab[$row['state']])) {
                 $tab[$row['state']] = 0;
             }
