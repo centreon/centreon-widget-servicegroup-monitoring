@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2005-2011 MERETHIS
+ * Copyright 2005-2019 Centreon
  * Centreon is developed by : Julien Mathis and Romain Le Merlus under
  * GPL Licence 2.0.
  *
@@ -66,7 +66,7 @@ class ServicegroupMonitoring
                   AND h.name NOT LIKE '_Module_%'
                   AND h.enabled = 1
                   AND ssg.servicegroup_id = sg.servicegroup_id
-                  AND sg.name = '" . $this->dbb->escape($sgName)."' ";
+                  AND sg.name = '" . $this->dbb->escape($sgName) . "' ";
         if (!$admin) {
             $query .= $aclObj->queryBuilder("AND", "h.host_id", $aclObj->getHostsString("ID", $this->dbb));
         }
@@ -118,8 +118,8 @@ class ServicegroupMonitoring
                    AND sg.name = '".$this->dbb->escape($sgName) ."' ";
         if (!$admin) {
             $query .= " AND h.host_id = acl.host_id
-                        AND acl.service_id = s.service_id ";
-            $query .= " AND acl.group_id IN (" .$aclObj->getAccessGroupsString().") ";
+                AND acl.service_id = s.service_id
+                AND acl.group_id IN (" . $aclObj->getAccessGroupsString() . ") ";
         }
         $query .= " ORDER BY h.name ";
         $res = $this->dbb->query($query);
