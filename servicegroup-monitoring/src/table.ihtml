@@ -62,7 +62,7 @@
             {assign var='classStyle' value='list_one'}
         {else}
             {assign var='classStyle' value='list_two'}
-        {/if}      
+        {/if}
     <tr id="host-{$elem2.host_id}" class="{$classStyle}">
         <td class='ListColLeft' width='160' style="padding-left: 19px;">
             <img src="/{$centreon_web_path}/img/icons/host.png" class="margin_right ico-18">
@@ -81,7 +81,7 @@
     </tr>
     {/foreach}
     {/if}
-{/foreach}	
+{/foreach}
 </table>
 <script>
   var widgetId = {$widgetId};
