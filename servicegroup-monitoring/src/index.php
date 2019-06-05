@@ -167,17 +167,17 @@ while ($row = $res->fetch()) {
         'hosturl' => "main.php?p=20202",
         'host_state' => $sgMonObj->getHostStates(
             $row['name'],
-            $detailMode,
             $centreon->user->admin,
             $aclObj,
-            $preferences
+            $preferences,
+            $detailMode
         ),
         'service_state' => $sgMonObj->getServiceStates(
             $row['name'],
-            $detailMode,
             $centreon->user->admin,
             $aclObj,
-            $preferences
+            $preferences,
+            $detailMode
         )
     );
 }

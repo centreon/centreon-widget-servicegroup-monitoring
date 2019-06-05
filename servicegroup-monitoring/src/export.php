@@ -162,17 +162,17 @@ while ($row = $res->fetch()) {
         $data[$row['name']][$key] = $value;
         $data[$row['name']]['host_state'] = $sgMonObj->getHostStates(
             $row['name'],
-            $detailMode,
             $centreon->user->admin,
             $aclObj,
-            $preferences
+            $preferences,
+            $detailMode
         );
         $data[$row['name']]['service_state'] = $sgMonObj->getServiceStates(
             $row['name'],
-            $detailMode,
             $centreon->user->admin,
             $aclObj,
-            $preferences
+            $preferences,
+            $detailMode
         );
     }
 }
