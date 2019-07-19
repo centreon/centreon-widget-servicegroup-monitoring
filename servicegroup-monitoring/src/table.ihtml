@@ -27,12 +27,13 @@
     {if $preferences.enable_detailed_mode == 0}
         <td class='ListColLeft'>
             {foreach key=state item=counter from=$elem.host_state}
-            <span class="state_badge" style='background-color: {$hostStateColors[$state]};'></span><span class='margin_right'>{$counter}</span>
+            <span class="state_badge" style='background-color: {$hostStateColors[$state]};'></span>
+            <span class='margin_right'>{$counter}</span>
             {/foreach}
         </td>
         <td class='ListColLeft'>
             {foreach key=state item=counter from=$elem.service_state}
-			    {if $state == 0 }
+                {if $state == 0 }
                     {assign var='link' value='&o=svc_ok'}
                 {elseif $state == 1 }
                     {assign var='link' value='&o=svc_warning'}
