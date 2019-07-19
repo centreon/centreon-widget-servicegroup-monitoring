@@ -121,8 +121,7 @@ $serviceStateLabels = array(
     4 => "Pending"
 );
 
-$query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT name
-    FROM servicegroups ";
+$query = "SELECT SQL_CALC_FOUND_ROWS DISTINCT name FROM servicegroups ";
 if (isset($preferences['sg_name_search']) && $preferences['sg_name_search'] != "") {
     $tab = explode(" ", $preferences['sg_name_search']);
     $op = $tab[0];
