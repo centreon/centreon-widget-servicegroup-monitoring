@@ -80,26 +80,36 @@ $serviceStateColors = array(0 => "#13EB3A",
                             3 => "#DCDADA",
                             4 => "#2AD1D4");
 
-while ($row = $res->fetchRow()) {
-    if ($row['key'] == "color_up") {
-        $hostStateColors[0] = $row['value'];
-    } elseif ($row['key'] == "color_down") {
-        $hostStateColors[1] = $row['value'];
-    } elseif ($row['key'] == "color_unreachable") {
-        $hostStateColors[2] = $row['value'];
-    } elseif ($row['key'] == "color_pending") {
-        $hostStateColors[4] = $row['value'];
-    } elseif ($row['key'] == "color_ok") {
-        $serviceStateColors[0] = $row['value'];
-    } elseif ($row['key'] == "color_warning") {
-        $serviceStateColors[1] = $row['value'];
-    } elseif ($row['key'] == "color_critical") {
-        $serviceStateColors[2] = $row['value'];
-    } elseif ($row['key'] == "color_unknown") {
-        $serviceStateColors[3] = $row['value'];
-    } elseif ($row['key'] == "color_pending") {
-        $serviceStateColors[4] = $row['value'];
-    }
+while ($row = $res->fetch()) {
+    switch ($row['key']) {
+        case "color_up":
+            $hostStateColors[0] = $row['value'];
+            break;
+        case "color_down":
+            $hostStateColors[1] = $row['value'];
+            break;
+        case "color_unreachable":
+            $hostStateColors[2] = $row['value'];
+            break;
+        case "color_pending":
+            $hostStateColors[4] = $row['value'];
+            break;
+        case "color_ok":
+            $serviceStateColors[0] = $row['value'];
+            break;
+        case "color_warning":
+            $serviceStateColors[1] = $row['value'];
+            break;
+        case "color_critical":
+            $serviceStateColors[2] = $row['value'];
+            break;
+        case "color_unknown":
+            $serviceStateColors[3] = $row['value'];
+            break;
+        case "color_pending":
+            $serviceStateColors[4] = $row['value'];
+            break;
+    }    
 }
 
 $hostStateLabels = array(0 => "Up",
