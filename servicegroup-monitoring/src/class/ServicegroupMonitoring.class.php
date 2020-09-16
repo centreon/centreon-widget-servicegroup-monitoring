@@ -100,7 +100,7 @@ class ServicegroupMonitoring
      * @param int $admin
      * @param CentreonACL $aclObj
      * @param array $preferences
-     * @return string
+     * @return array
      */
     public function getServiceStates($sgName, $admin, $aclObj, $preferences, $detailFlag = false): array
     {
