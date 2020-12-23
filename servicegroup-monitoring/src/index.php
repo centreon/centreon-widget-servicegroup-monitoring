@@ -163,7 +163,12 @@ $resourceController = $kernel->getContainer()->get(
     \Centreon\Application\Controller\MonitoringResourceController::class
 );
 
-$buildServicegroupUri = function ($servicegroups = [], $types = [], $statuses = [], $search = '') use ($resourceController) {
+$buildServicegroupUri = function (
+    $servicegroups = [],
+    $types = [],
+    $statuses = [],
+    $search = ''
+) use ($resourceController) {
     return $resourceController->buildListingUri(
         [
             'filter' => json_encode(
