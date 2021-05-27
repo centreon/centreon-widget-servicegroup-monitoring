@@ -83,8 +83,8 @@ $nbRows = $preferences['entries'];
 
 $hostStateColors = array(
     0 => "#88B917",
-    1 => "#F91E05",
-    2 => "#82CFD8",
+    1 => "#E00B3D",
+    2 => "#818285",
     4 => "#2AD1D4"
 );
 
@@ -92,7 +92,7 @@ $serviceStateColors = array(
     0 => "#88B917",
     1 => "#FF9A13",
     2 => "#E00B3D",
-    3 => "#DCDADA",
+    3 => "#BCBDC0",
     4 => "#2AD1D4"
 );
 
